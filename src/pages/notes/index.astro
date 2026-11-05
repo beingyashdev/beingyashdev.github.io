@@ -1,0 +1,4 @@
+---
+import Base from '../../layouts/Base.astro'; import EntryList from '../../components/EntryList.astro'; import { publishedNotes } from '../../lib'; const notes=await publishedNotes();
+---
+<Base title="Learning notes" description="Small engineering discoveries, captured as they happen."><div class="container page"><div class="page-heading"><div class="eyebrow">THE NOTEBOOK / {String(notes.length).padStart(2,'0')} NOTES</div><h1>Learn it. <em>Keep it.</em></h1><p>Small discoveries, useful reminders, and ideas that are still taking shape. A working notebook for a curious engineer.</p></div><div class="list-toolbar"><span>RECENT NOTES</span><a href="/knowledge/">Browse by topic ↗</a></div><EntryList entries={notes} type="notes"/></div></Base>

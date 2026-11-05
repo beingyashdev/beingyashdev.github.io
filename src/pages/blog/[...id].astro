@@ -1,0 +1,6 @@
+---
+import { render } from 'astro:content'; import Article from '../../layouts/Article.astro'; import { publishedBlog } from '../../lib';
+export async function getStaticPaths(){const posts=await publishedBlog();return posts.map((entry,i)=>({params:{id:entry.id},props:{entry,previous:posts[i+1],next:posts[i-1],related:posts.filter(p=>p.id!==entry.id&&(p.data.category===entry.data.category||p.data.tags.some(t=>entry.data.tags.includes(t)))).slice(0,3)}}))}
+const {entry,previous,next,related}=Astro.props; const {Content,headings}=await render(entry);
+---
+<Article {entry} type="blog" {headings} {previous} {next} {related}><Content/></Article>

@@ -1,0 +1,5 @@
+---
+import { date, readingTime } from '../lib';
+const { entries, type = 'blog' } = Astro.props;
+---
+<div class="entry-list">{entries.map((entry: any) => <a class="entry-row" href={`/${type}/${entry.id}/`}><div class="entry-date">{date(type === 'blog' ? entry.data.publishedDate : entry.data.date)}</div><div><div class="entry-title">{entry.data.title} <span aria-hidden="true">↗</span></div>{entry.data.description && <p>{entry.data.description}</p>}<div class="entry-meta"><span>{entry.data.category}</span><span>·</span><span>{type === 'blog' ? `${readingTime(entry.body)} min read` : 'Learning note'}</span></div></div></a>)}</div>

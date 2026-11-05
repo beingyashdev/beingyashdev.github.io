@@ -1,0 +1,6 @@
+---
+import { render } from 'astro:content'; import Article from '../../layouts/Article.astro'; import { publishedBlog,publishedNotes } from '../../lib';
+export async function getStaticPaths(){const notes=await publishedNotes();const posts=await publishedBlog();return notes.map(entry=>({params:{id:entry.id},props:{entry,related:posts.filter(p=>entry.data.related.includes(p.id))}}))}
+const {entry,related}=Astro.props; const {Content,headings}=await render(entry);
+---
+<Article {entry} type="notes" {headings} {related} references={entry.data.references}><Content/></Article>

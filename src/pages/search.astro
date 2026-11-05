@@ -1,0 +1,4 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Search"><div class="container page search-page"><div class="page-heading"><div class="eyebrow">FIND SOMETHING USEFUL</div><h1>Search the <em>notebook.</em></h1><p>Find an idea across articles and learning notes. Filter results by category or tag.</p></div><div id="search"></div><p class="search-hint">Search is available in the production build. Run <code>npm run build</code> and <code>npm run preview</code> to try it locally.</p></div><link href="/pagefind/pagefind-ui.css" rel="stylesheet"/><script is:inline src="/pagefind/pagefind-ui.js"></script><script is:inline>if(window.PagefindUI){new PagefindUI({element:'#search',showSubResults:true,showImages:false});document.querySelector('.search-hint').remove()}</script></Base>

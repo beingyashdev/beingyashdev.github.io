@@ -1,0 +1,5 @@
+---
+import Base from '../../layouts/Base.astro'; import EntryList from '../../components/EntryList.astro'; import { publishedBlog } from '../../lib';
+const posts=await publishedBlog();
+---
+<Base title="Writing" description="Thoughtful articles about software engineering and systems."><div class="container page"><div class="page-heading"><div class="eyebrow">THE WRITING / {String(posts.length).padStart(2,'0')} ARTICLES</div><h1>Thinking in <em>systems.</em></h1><p>Long-form explorations of backend engineering, the decisions behind the code, and what I’m learning along the way.</p></div><div class="list-toolbar"><span>ALL ARTICLES</span><a href="/search/">Search articles & notes ↗</a></div><EntryList entries={posts}/></div></Base>
