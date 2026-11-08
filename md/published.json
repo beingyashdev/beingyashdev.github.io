@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "articles": [
+    {
+      "source": "md/gitflow_practical_guide.md",
+      "article": "src/content/blog/gitflow-practical-guide.md",
+      "sha256": "faf32a10eb8825b597c139a3d301ac60ba626e30e8ce477b3a5ff94d0c4dadcb"
+    },
+    {
+      "source": "md/postgresql-isolation-blog-retry-2026.md",
+      "article": "src/content/blog/postgresql-transaction-isolation-inventory.md",
+      "sha256": "307f07e7d3cf82e6a807b4401f5449521fedd8634df9efa44bf43b85dc2b6f77"
+    },
+    {
+      "source": "md/s3_upload_consistency_blog_notes.md",
+      "article": "src/content/blog/s3-upload-consistency-blog-notes.md",
+      "sha256": "ec8c9427bf8c8d9cfe29d758c935ba376bf7769fd9a7c41040f98399704ad086"
+    }
+  ]
+}
