@@ -15,6 +15,11 @@
       "source": "md/s3_upload_consistency_blog_notes.md",
       "article": "src/content/blog/s3-upload-consistency-blog-notes.md",
       "sha256": "ec8c9427bf8c8d9cfe29d758c935ba376bf7769fd9a7c41040f98399704ad086"
+    },
+    {
+      "source": "md/java_hashmap_concurrency_deep_dive_updated.md",
+      "article": "src/content/blog/java-hashmap-concurrency-deep-dive-updated.md",
+      "sha256": "0115967cca4075fa0cae3dc6856a48801b1782e75493ccf5b9bab9f21c594a33"
     }
   ]
 }
