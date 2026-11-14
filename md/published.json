@@ -20,6 +20,11 @@
       "source": "md/java_hashmap_concurrency_deep_dive_updated.md",
       "article": "src/content/blog/java-hashmap-concurrency-deep-dive-updated.md",
       "sha256": "0115967cca4075fa0cae3dc6856a48801b1782e75493ccf5b9bab9f21c594a33"
+    },
+    {
+      "source": "md/designing_a_distributed_job_scheduler.md",
+      "article": "src/content/blog/designing-a-distributed-job-scheduler.md",
+      "sha256": "0bb84c1eb8b283c70c59ac3912e8603283bb49609677712483df49b42314030f"
     }
   ]
 }
