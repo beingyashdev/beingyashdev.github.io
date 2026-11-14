@@ -1,5 +1,51 @@
 ---
-import Base from '../../layouts/Base.astro'; import EntryList from '../../components/EntryList.astro'; import { publishedBlog } from '../../lib';
-const posts=await publishedBlog();
+import Base from '../../layouts/Base.astro';
+import EntryList from '../../components/EntryList.astro';
+import { publishedBlog } from '../../lib';
+
+const posts = await publishedBlog();
 ---
-<Base title="Writing" description="Thoughtful articles about software engineering and systems."><div class="container page"><div class="page-heading"><div class="eyebrow">THE WRITING / {String(posts.length).padStart(2,'0')} ARTICLES</div><h1>Thinking in <em>systems.</em></h1><p>Long-form explorations of backend engineering, the decisions behind the code, and what I’m learning along the way.</p></div><div class="list-toolbar"><span>ALL ARTICLES</span><a href="/search/">Search articles & notes ↗</a></div><EntryList entries={posts}/></div></Base>
+
+<Base title="Writing" description="Thoughtful articles about software engineering and systems.">
+  <div class="container page">
+    <div class="page-heading">
+      <div class="eyebrow">THE WRITING / {String(posts.length).padStart(2, '0')} ARTICLES</div>
+      <h1>Thinking in <em>systems.</em></h1>
+      <p>Long-form explorations of backend engineering, the decisions behind the code, and what I’m learning along the way.</p>
+    </div>
+    <details id="search-panel">
+      <summary>Search articles</summary>
+      <div id="search"></div>
+      <p class="search-hint">Search is available in the production preview after running <code>npm run build</code>.</p>
+    </details>
+    <div class="list-toolbar"><span>ALL ARTICLES</span></div>
+    <EntryList entries={posts} />
+  </div>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    const panel = document.querySelector('#search-panel');
+    const tag = new URLSearchParams(location.search).get('tag');
+    if (window.PagefindUI) {
+      const search = new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+      if (tag) search.triggerFilters({ tag: [tag] });
+      document.querySelector('.search-hint')?.remove();
+    }
+    const openSearch = () => {
+      if (location.hash === '#search' || tag) {
+        panel.open = true;
+        document.querySelector('#search input')?.focus();
+      }
+    };
+    openSearch();
+    window.addEventListener('hashchange', openSearch);
+  </script>
+</Base>
+
+<style>
+  details { margin-bottom: 36px; }
+  summary { cursor: pointer; color: #4f8967; font-size: 14px; font-weight: 600; padding: 12px 0; }
+  summary:focus-visible { outline: 3px solid #5b9d79; outline-offset: 4px; }
+  #search { scroll-margin-top: 30px; margin-top: 16px; }
+  :global([data-theme='dark']) summary { color: #a8d3b5; }
+</style>
